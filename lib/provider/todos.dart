@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:todo_app/api/firebase_api.dart';
 import 'package:todo_app/model/todo.dart';
 
 class TodosProvider extends ChangeNotifier {
@@ -38,11 +39,11 @@ class TodosProvider extends ChangeNotifier {
   List<Todo> get todosCompleted =>
       _todos.where((todo) => todo.isDone == true).toList();
 
-  void addTodo(Todo todo) {
-    _todos.add(todo);
-
-    notifyListeners();
-  }
+  // void addTodo(Todo todo) {
+  //   _todos.add(todo);
+  //   notifyListeners();
+  // }
+  void addTodo(Todo todo) => FirebaseApi.createTodo(todo);
 
   void removeTodo(Todo todo) {
     _todos.remove(todo);
