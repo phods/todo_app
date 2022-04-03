@@ -46,11 +46,11 @@ class _HomePageState extends State<HomePage> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        backgroundColor: Color.fromARGB(255, 167, 39, 39),
+        backgroundColor: Colors.green,
         onPressed: () => showDialog(
           context: context,
           builder: (context) => AddTodoDialogWidget(),
-          barrierDismissible: false,
+          barrierDismissible: true,
         ),
         child: Icon(Icons.add),
       ),
