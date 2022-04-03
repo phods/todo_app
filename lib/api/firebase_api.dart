@@ -12,21 +12,21 @@ class FirebaseApi {
     return docTodo.id;
   }
 
-  // static Stream<List<Todo>> readTodos() => FirebaseFirestore.instance
-  //     .collection('todo')
-  //     .orderBy(TodoField.createdTime, descending: true)
-  //     .snapshots()
-  //     .transform(Utils.transformer(Todo.fromJson));
+  static Stream<List<Todo>> readTodos() => FirebaseFirestore.instance
+      .collection('todo')
+      .orderBy(TodoField.createdTime, descending: true)
+      .snapshots()
+      .transform(Utils.transformer(Todo.fromJson));
 
-  // static Future updateTodo(Todo todo) async {
-  //   final docTodo = FirebaseFirestore.instance.collection('todo').doc(todo.id);
+  static Future updateTodo(Todo todo) async {
+    final docTodo = FirebaseFirestore.instance.collection('todo').doc(todo.id);
 
-  //   await docTodo.update(todo.toJson());
-  // }
+    await docTodo.update(todo.toJson());
+  }
 
-  // static Future deleteTodo(Todo todo) async {
-  //   final docTodo = FirebaseFirestore.instance.collection('todo').doc(todo.id);
+  static Future deleteTodo(Todo todo) async {
+    final docTodo = FirebaseFirestore.instance.collection('todo').doc(todo.id);
 
-  //   await docTodo.delete();
-  // }
+    await docTodo.delete();
+  }
 }
